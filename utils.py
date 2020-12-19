@@ -6,6 +6,8 @@ from matplotlib import cm
 from tensorflow.keras.models import load_model
 import os
 
+# hello sir, from the West, my name is DArsh!
+
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 import matplotlib.pyplot as plt
 
