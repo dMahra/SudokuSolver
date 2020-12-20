@@ -35,7 +35,7 @@ model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))
 model.add(tf.keras.layers.Dense(units=10, activation=tf.nn.softmax))
 
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs=3)
+model.fit(x_train, y_train, epochs=200)
 loss, accuracy = model.evaluate(x_test, y_test)
 print(accuracy)
 print(loss)
@@ -52,10 +52,8 @@ for x in all_imgs:
     img = cv.imread(x)[:, :, 0]
     # kernel = np.array([[-1, -1, -1], [-1, 9, -1], [-1, -1, -1]])
     # img = cv.filter2D(img, -1, kernel)
-    img = cv.resize(img, (28, 28))
-    print(img.shape) # 28,28
-    img = np.array([img])
-    print(img.shape) # 1, 28, 28
+    img = cv.resize(img, (28, 28)) # 28,28
+    img = np.array([img]) # 1, 28, 28
     prediction = model.predict(img)
     print('The result is probably: ' + str(np.argmax(prediction)))
     plt.imshow(img[0], cmap=plt.cm.binary)
