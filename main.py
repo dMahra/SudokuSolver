@@ -7,7 +7,7 @@ import cv2 as cv
 from utils import *
 
 
-pathImage = '/Users/darsh_mahra/PycharmProjects/numberrecognition/secondhand.jpg'
+pathImage = '/Users/darsh_mahra/PycharmProjects/numberrecognition/media/secondhand.jpg'
 heightimage, widthimage = 450, 450
 Model = initializeModel()
 
