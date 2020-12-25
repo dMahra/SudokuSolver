@@ -7,7 +7,10 @@ import cv2 as cv
 from utils import *
 
 
-pathImage = '/Users/darsh_mahra/PycharmProjects/numberrecognition/media/secondhand.jpg'
+# pathImage = '/Users/darsh_mahra/PycharmProjects/numberrecognition/media/secondhand.jpg'
+pathImage = '/Users/darsh_mahra/Documents/GitHub/SudokuSolver/numberrecognition/media/secondhand.jpg'
+
+
 heightimage, widthimage = 450, 450
 Model = initializeModel()
 
