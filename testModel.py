@@ -22,31 +22,32 @@ from PIL import Image
 #     idx = (y != digit).nonzero()
 #     return x[idx], y[idx]
 
-mnist = tf.keras.datasets.mnist
-(x_train, y_train), (x_test, y_test) = mnist.load_data()
-x_train, y_train = remove_int(0, x_train, y_train)
-# normalize data
-x_train = tf.keras.utils.normalize(x_train, axis=1)
-x_test = tf.keras.utils.normalize(x_test, axis=1)
-model = tf.keras.models.Sequential()
-model.add(tf.keras.layers.Flatten(input_shape=(28, 28)))
-model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))
-model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))
-model.add(tf.keras.layers.Dense(units=10, activation=tf.nn.softmax))
-
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.fit(x_train, y_train, epochs=200)
-loss, accuracy = model.evaluate(x_test, y_test)
-print(accuracy)
-print(loss)
-model.save('/Users/darsh_mahra/PycharmProjects/numberrecognition/numberModel.h5')
+# mnist = tf.keras.datasets.mnist
+# (x_train, y_train), (x_test, y_test) = mnist.load_data()
+# x_train, y_train = remove_int(0, x_train, y_train)
+# # normalize data
+# x_train = tf.keras.utils.normalize(x_train, axis=1)
+# x_test = tf.keras.utils.normalize(x_test, axis=1)
+# model = tf.keras.models.Sequential()
+# model.add(tf.keras.layers.Flatten(input_shape=(28, 28)))
+# model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))
+# model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))
+# model.add(tf.keras.layers.Dense(units=10, activation=tf.nn.softmax))
+#
+# model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+# model.fit(x_train, y_train, epochs=200)
+# loss, accuracy = model.evaluate(x_test, y_test)
+# print(accuracy)
+# print(loss)
+# model.save('/Users/darsh_mahra/PycharmProjects/numberrecognition/numberModel.h5')
 
 # loading our own images
 
 # first get all the images
 model = load_model('numberModel.h5', compile=False)
 import glob
-all_imgs = glob.glob("/Users/darsh_mahra/PycharmProjects/numberrecognition/numbers/*.jpg")
+all_imgs = glob.glob("/Users/darsh_mahra/Documents/GitHub/SudokuSolver/numberrecognition/media/numbers/*.jpg")
+
 # all_imgs is a list of uploaded images
 for x in all_imgs:
     img = cv.imread(x)[:, :, 0]

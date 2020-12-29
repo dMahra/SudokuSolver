@@ -8,7 +8,7 @@ from utils import *
 
 
 # pathImage = '/Users/darsh_mahra/PycharmProjects/numberrecognition/media/secondhand.jpg'
-pathImage = '/Users/darsh_mahra/Documents/GitHub/SudokuSolver/numberrecognition/media/secondhand.jpg'
+pathImage = '/Users/darsh_mahra/Documents/GitHub/SudokuSolver/numberrecognition/media/examplepuzzle.jpg'
 
 
 heightimage, widthimage = 450, 450
@@ -98,10 +98,12 @@ for i in range(9):
 # print(np.sum(check_center_crop(finalgrid[0][0]) == 255)) #white pixels?
 # print(check_center_crop(finalgrid[0][3]))
 # print(np.sum(check_center_crop(finalgrid[1][6])) == 255)
-print(np.sum(check_center_crop(finalgrid[1][6]) == 0) > 250)
+# print(np.sum(check_center_crop(finalgrid[1][6]) == 0) > 250)
 # print(np.sum(check_center_crop(finalgrid[0][0]) == 0))
-
-# cv.imshow('example', check_center_crop(finalgrid[0][0]))
+# cv.imshow('example', finalgrid[8][1])
+# cv.waitKey(0)
+print(np.sum(check_center_crop(finalgrid[8][0]) == 0))
+# cv.imshow('example', check_center_crop(finalgrid[8][0]))
 # cv.waitKey(0)
 ## main
 for i in range(9):
@@ -112,7 +114,7 @@ for i in range(9):
         # probValue = np.amax(Model.predict(cropp(pic, 32, 32)), axis=-1)
         # print(probValue)
         # print(probValue)
-        if np.sum(check_center_crop(pic) == 0) > 245: #checks if cropped picture is black (out of 252 pixels)
+        if np.sum(check_center_crop(pic) == 0) > 230: #checks if cropped picture is black (out of 252 pixels)
             finalgrid[i][j] = 0
         else:
             finalgrid[i][j] = np.argmax(Model.predict(cropp(pic, 32, 32)))

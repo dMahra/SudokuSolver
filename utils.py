@@ -92,8 +92,8 @@ def check_center_crop(npy_pic):
     # pil_img = pil_img.convert('1')
     # img_width, img_height = pil_img.size
     c = pil_img.crop((14, 30, 32, 44))
-    # c = pil_img.crop((10, 20, 20, 10))
-    c = c.convert('1')
+    # c = pil_img.crop((10, 40, 40, 10))
+    c = c.convert('L')
     c = np.array(c)
     # c = cv.resize(np.array(c), (28, 28))
     # c = cv.resize(np.array(c), (28, 28))
